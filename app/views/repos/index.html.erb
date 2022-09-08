@@ -1,0 +1,5 @@
+<% unless @repos.empty? %>
+  <%= render 'repos_index', collection: @repos %>
+<% else  %>
+  <%= render 'empty_repos_index' %>  
+<% end %>

@@ -1,0 +1,20 @@
+<h4><%= @total_count %> repository results</h4>
+  
+<% @repos.each do |repo|%>
+  <div class="repo spacer">
+    <a href="<%= repo["html_url"] %>" target="_blank"><%= repo["full_name"] %></a>
+
+    <p class="spacer"><%= repo["description"] %></p>
+
+    <% repo_topics(repo).each do |topic| %>
+      <button type="button" class="btn btn-outline-info"><%= topic %></button>
+    <% end %>
+
+    <p class="spacer">Watchers: <%= repo_watchers(repo) %></p>
+  </div>
+  <hr>
+<% end  %>
+
+<div class="pagination">
+  <%= paginate @repos %>
+</div>

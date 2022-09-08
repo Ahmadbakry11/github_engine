@@ -1,0 +1,9 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "RepoEngine", root_path, class: "navbar-brand" %>
+    <%= form_for @repos_search, html: { class: "d-flex" } do |form| %>
+      <%= form.text_field :term, class:"form-control me-2", placeholder: "Search" %>
+      <%= form.submit "Search" %>
+    <% end %>
+  </div>
+</nav>
