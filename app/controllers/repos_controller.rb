@@ -3,9 +3,7 @@ class ReposController < ApplicationController
 
   def index
     if params[:term]
-      term = params[:term]
-      current_page = params[:page] || 1
-      response = Apis::Github.search(term, current_page)
+      response = GithubApi.search(params[:term], params[:page] || 1)
       @repos = paginated_response(response)
       @total_count = response["total_count"]
     else
