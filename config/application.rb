@@ -33,5 +33,7 @@ module GithubEngine
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    Dir[Rails.root.join('app/apis/*.rb')].each{|rb| require rb}
+    Dir[Rails.root.join('app/services/*.rb')].each{|rb| require rb}
   end
 end
